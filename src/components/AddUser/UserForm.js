@@ -17,12 +17,24 @@ const UserForm = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    if (username.trim().length === 0 || age.trim().length === 0) {
+      props.onError("empty");
+      return;
+    }
+
+    if (Number(age) <= 0 || !Number(age)) {
+      props.onError("age err");
+      return;
+    }
+
     const userDetails = {
       username: username,
       age: age,
       id: Math.random().toString,
     };
     props.onSubmit(userDetails);
+    setUsername("");
+    setAge("");
   };
 
   return (
@@ -32,12 +44,14 @@ const UserForm = (props) => {
         className="userform-input"
         name="username"
         onChange={usernameHandler}
+        value={username}
       ></input>
       <h2 className="title">Age (Years)</h2>
       <input
         className="userform-input"
         name="age"
         onChange={ageHandler}
+        value={age}
       ></input>
       <Button type="submit" onClick={submitHandler}>
         Add User

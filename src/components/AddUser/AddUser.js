@@ -7,9 +7,14 @@ const AddUser = (props) => {
   const submitHandler = (userDetails) => {
     props.onAddUser(userDetails);
   };
+
+  const errorHandler = (error) => {
+    props.onError(error);
+  };
+
   return (
     <Card>
-      <UserForm onSubmit={submitHandler} />
+      <UserForm onSubmit={submitHandler} onError={errorHandler} />
     </Card>
   );
 };
