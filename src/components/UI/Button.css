@@ -1,0 +1,12 @@
+.button {
+  background: rebeccapurple;
+  color: white;
+  padding: 0.3rem 1rem;
+  font-size: large;
+  border-style: groove;
+  font-weight: 200;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: blueviolet;
+}
