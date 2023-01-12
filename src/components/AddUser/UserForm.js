@@ -21,20 +21,19 @@ const UserForm = (props) => {
       props.onError("empty");
       return;
     }
-
     if (Number(age) <= 0 || !Number(age)) {
       props.onError("age err");
       return;
     }
-
     const userDetails = {
       username: username,
       age: age,
-      id: Math.random().toString,
+      id: Math.random().toString(),
     };
     props.onSubmit(userDetails);
     setUsername("");
     setAge("");
+    props.onError(null);
   };
 
   return (

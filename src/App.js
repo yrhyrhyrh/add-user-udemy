@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      <InvalidModal error={error} />
+      {error && <InvalidModal error={error} />}
       <AddUser onAddUser={addUserHandler} onError={errorHandler} />
       <Users userArray={users} />
     </div>
