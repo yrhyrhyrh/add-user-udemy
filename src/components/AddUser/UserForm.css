@@ -1,0 +1,19 @@
+.user-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user-form .title,
+.user-form .button {
+  align-self: flex-start;
+}
+
+.user-form .title {
+  margin: 0.5rem 0;
+  font-size: larger;
+}
+
+.userform-input {
+  font-size: larger;
+}
