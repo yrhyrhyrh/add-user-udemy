@@ -1,4 +1,9 @@
 .user {
   border-color: grey;
+  border-style: solid;
+  border-width: 1px;
   padding: 0.2rem;
+  list-style: none;
+  padding: 0.7rem;
+  display: flex;
 }

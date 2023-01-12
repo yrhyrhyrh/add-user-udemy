@@ -1,10 +1,11 @@
 import Card from "../UI/Card";
 import User from "./User";
+import "./Users.css";
 
 const Users = (props) => {
   return (
     <Card>
-      <ul>
+      <ul className="user-list">
         {props.userArray.map((user) => (
           <User
             key={user.id}
