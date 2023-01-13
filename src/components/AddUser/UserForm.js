@@ -38,14 +38,19 @@ const UserForm = (props) => {
 
   return (
     <form className="user-form">
-      <h2 className="title">Username</h2>
+      <label htmlFor="username" className="title">
+        Username
+      </label>
+      {/* input type="number" */}
       <input
         className="userform-input"
         name="username"
         onChange={usernameHandler}
         value={username}
       ></input>
-      <h2 className="title">Age (Years)</h2>
+      <label htmlFor="username" className="title">
+        Age (Years)
+      </label>
       <input
         className="userform-input"
         name="age"

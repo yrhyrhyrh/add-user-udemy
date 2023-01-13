@@ -8,6 +8,7 @@
 .user-form .title,
 .user-form .button {
   align-self: flex-start;
+  font-weight: 700;
 }
 
 .user-form .title {

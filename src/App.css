@@ -1,12 +1,10 @@
 .App {
   text-align: center;
-  background: #282c34;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   gap: 3rem;
-  height: 100%;
   padding-top: 3rem;
 }
 
