@@ -1,39 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import Button from "../UI/Button";
 import "./UserForm.css";
 
 const UserForm = (props) => {
-  const [username, setUsername] = useState("");
-  const [age, setAge] = useState("");
-
-  const usernameHandler = (e) => {
-    setUsername(e.target.value);
-  };
-
-  const ageHandler = (e) => {
-    setAge(e.target.value);
-  };
+  const nameInputRef = useRef();
+  const ageInputRef = useRef();
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if (username.trim().length === 0 || age.trim().length === 0) {
+    const enteredName = nameInputRef.current.value;
+    const enteredAge = ageInputRef.current.value;
+
+    if (enteredName.trim().length === 0 || enteredAge.trim().length === 0) {
       props.onError("empty");
       return;
     }
-    if (Number(age) <= 0 || !Number(age)) {
+    if (Number(enteredAge) <= 0 || !Number(enteredAge)) {
       props.onError("age err");
       return;
     }
     const userDetails = {
-      username: username,
-      age: age,
+      username: enteredName,
+      age: enteredAge,
       id: Math.random().toString(),
     };
     props.onSubmit(userDetails);
-    setUsername("");
-    setAge("");
+
     props.onError(null);
+    nameInputRef.current.value = "";
+    ageInputRef.current.value = "";
   };
 
   return (
@@ -45,18 +41,12 @@ const UserForm = (props) => {
       <input
         className="userform-input"
         name="username"
-        onChange={usernameHandler}
-        value={username}
+        ref={nameInputRef}
       ></input>
       <label htmlFor="username" className="title">
         Age (Years)
       </label>
-      <input
-        className="userform-input"
-        name="age"
-        onChange={ageHandler}
-        value={age}
-      ></input>
+      <input className="userform-input" name="age" ref={ageInputRef}></input>
       <Button type="submit" onClick={submitHandler}>
         Add User
       </Button>
